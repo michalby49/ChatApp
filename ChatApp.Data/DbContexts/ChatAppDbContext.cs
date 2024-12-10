@@ -11,7 +11,7 @@ namespace ChatApp.Data.DbContexts
 {
     public class ChatAppDbContext : DbContext
     {
-        public ChatAppDbContext() : base(new DbContextOptions<ChatAppDbContext>())
+        public ChatAppDbContext(DbContextOptions<ChatAppDbContext> options) : base(options)
         {
         }
 
