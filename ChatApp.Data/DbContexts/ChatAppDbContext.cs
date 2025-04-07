@@ -1,15 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 using ChatApp.Core.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace ChatApp.Data.DbContexts
 {
-    public class ChatAppDbContext : DbContext
+    public class ChatAppDbContext : IdentityDbContext<User>
     {
         public ChatAppDbContext(DbContextOptions<ChatAppDbContext> options) : base(options)
         {
@@ -18,8 +13,6 @@ namespace ChatApp.Data.DbContexts
         public DbSet<Inbox> Inboxes { get; set; }
 
         public DbSet<Message> Messages { get; set; }
-
-        public DbSet<User> Users { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ChatApp.Core.Commands.Handlers
 {
-    public class CreateInboxCommandHandler : IRequestHandler<CreateInboxCommand, Unit>
+    public class CreateInboxCommandHandler : IRequestHandler<CreateInboxCommand, Guid>
     {
         private readonly IInboxRepository _inboxRepository;
         private readonly IUserRepository _userRepository;
@@ -20,7 +20,7 @@ namespace ChatApp.Core.Commands.Handlers
             _userRepository = userRepository;
         }
 
-        public async Task<Unit> Handle(CreateInboxCommand command, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateInboxCommand command, CancellationToken cancellationToken)
         {
             var users = await _userRepository.GetUsersByIdsAsync(command.UserIds);
 
@@ -34,7 +34,7 @@ namespace ChatApp.Core.Commands.Handlers
 
             await _inboxRepository.AddInboxAsync(inbox);
 
-            return Unit.Value;
+            return inbox.Id;
         }
     }
 }

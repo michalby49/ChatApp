@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35514.174 d17.12
+VisualStudioVersion = 17.12.35514.174
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatApp.Server", "ChatApp.Server\ChatApp.Server.csproj", "{344D5AE4-B03B-4068-9277-F5F887529AE1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatApp.Identity", "ChatApp.Server\ChatApp.Identity.csproj", "{344D5AE4-B03B-4068-9277-F5F887529AE1}"
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "chatapp.client", "chatapp.client\chatapp.client.esproj", "{137B848F-9A49-44E6-9FCE-81D8247166E8}"
 EndProject

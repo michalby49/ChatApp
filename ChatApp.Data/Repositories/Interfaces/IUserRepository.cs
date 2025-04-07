@@ -11,6 +11,8 @@ namespace ChatApp.Data.Repositories.Interfaces
     {
         Task AddUserAsync(User user);
 
+        Task<IEnumerable<User>> GetAllUsersAsync();
+
         Task<User> GetUserByIdAsync(Guid userId);
 
         Task<IEnumerable<User>> GetUsersByIdsAsync(IEnumerable<Guid> userIds);

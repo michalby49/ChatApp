@@ -20,6 +20,11 @@ namespace ChatApp.Data.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task<IEnumerable<User>> GetAllUsersAsync()
+        {
+            return await _context.Users.OrderBy(u => u.UserName).ToListAsync();
+        }
+
         public async Task<User> GetUserByIdAsync(Guid userId)
         {
             return await _context.Users.FindAsync(userId);

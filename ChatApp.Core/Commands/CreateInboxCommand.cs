@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ChatApp.Core.Commands
 {
-    public class CreateInboxCommand : IRequest<Unit>
+    public class CreateInboxCommand : IRequest<Guid>
     {
         public string Name { get; set; }
 

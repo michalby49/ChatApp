@@ -42,9 +42,9 @@ export class ChatSignalRService {
     });
   }
 
-  sendMessage(user: string, message: string): void {
+  sendMessage(message: string, inboxId: string): void {
     if (this.hubConnection.state === signalR.HubConnectionState.Connected) {
-      this.hubConnection.send('SendMessage', user, message)
+      this.hubConnection.send('SendMessage', inboxId, message)
         .catch(err => console.error('Error while sending message: ' + err));
     } else {
       console.error('Cannot send message: Hub connection is not in the Connected state');

@@ -1,0 +1,30 @@
+.home-layout {
+  display: grid;
+  grid-template-rows: 60px auto; /* Navbar na górze */
+  grid-template-columns: 250px auto; /* Sidebar z lewej i chat z prawej */
+  grid-template-areas:
+    "navbar navbar"
+    "sidebar chat";
+  height: 100vh; /* Całkowita wysokość okna przeglądarki */
+}
+
+.navbar {
+  grid-area: navbar;
+  background-color: #333;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+
+.chat {
+  grid-area: chat;
+  padding: 20px;
+}

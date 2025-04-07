@@ -1,5 +1,9 @@
+using ChatApp.Core.Commands;
 using ChatApp.Core.Commands.Handlers;
+using ChatApp.Core.Queries;
 using ChatApp.Data.DbContexts;
+using ChatApp.Data.Repositories.Interfaces;
+using ChatApp.Data.Repositories;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -16,6 +20,16 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<ChatAppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IInboxRepository, InboxRepository>();
+builder.Services.AddScoped<IMessageRepository, MessageRepository>();
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateInboxCommand).Assembly));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(SendMessageCommand).Assembly));
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetInboxesByUserQuery).Assembly));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllUsersQuery).Assembly));
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetMessagesByInboxQuery).Assembly));
 
 builder.Services.AddCors(options =>
 {

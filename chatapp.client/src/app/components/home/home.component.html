@@ -1,0 +1,17 @@
+<div class="home-layout">
+  <div class="navbar">
+    <h2>Navbar</h2>
+  </div>
+  <div class="sidebar">
+    <app-user-list></app-user-list>
+    <h3>Wybór inboxa</h3>
+    <ul>
+      <li *ngFor="let inbox of inboxes" (click)="selectInbox(inbox.id)">
+        {{ inbox.name }}
+      </li>
+    </ul>
+  </div>
+  <div class="chat">
+    <app-chat [selectedInboxId]="selectedInboxId"></app-chat>
+  </div>
+</div>
